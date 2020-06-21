@@ -13,7 +13,7 @@
 	$query->execute([$user_id]); 
         $res = array();
 	foreach ($query as $row) {
-	    $element = ['user_id' => $row['user_id'], 'medical' => $row['medical'], 'pharm' => $row['pharm'], 'dpurch' => $row['dpurch'], 'cost' => $row['cost']];
+	    $element = ['user_id' => $row['user_id'], 'medical' => $row['medical'], 'pharm' => $row['pharm'], 'dpurch' => $row['dpurch'], 'cost' => $row['cost'], 'amount' => $row['amount']];
 	    $res[] = $element;
 	}
     	echo json_encode($res);

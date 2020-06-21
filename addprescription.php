@@ -9,11 +9,11 @@
 
     	$stmt = $pdo->query("SET NAMES UTF8");
     	
-	$stmt = $pdo->prepare("INSERT INTO t_finance (user_id, medical, pharm, dpurch, cost, amount) VALUES (?,?,?,?,?,?)");
-	$stmt->execute([$data['user_id'], $data['medical'], $data['pharm'], $data['dpurch'], $data['cost'], $data['amount']]); 
+	$stmt = $pdo->prepare("INSERT INTO t_prescription (user_id, doctor_name, medical, medtype, user_to, dstart, dfinish, times) VALUES (?,?,?,?,?,?,?,?)");
+	$stmt->execute([$data['user_id'], $data['doctor_name'], $data['medical'], $data['medtype'], $data['user_to'], $data['dstart'], $data['dfinish'], json_encode($data['times'])]); 
     	$res = [
 	    'id' => $data['user_id'],
-	    'Operation' => 'addFinance',
+	    'Operation' => 'addPrescription',
 	    'Status' => 'Ok'
 	];
     	echo json_encode($res);

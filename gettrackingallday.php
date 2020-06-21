@@ -36,6 +36,14 @@ where
 //                }
 	    }
 	}
+        for($i=0; $i<count($res)-1; $i++)
+            for($j=$i+1; $j<count($res); $j++)
+                if($res[$i]['time'] > $res[$j]['time']){
+                    $tmp = $res[$i];
+                    $res[$i] = $res[$j];
+                    $res[$j] = $tmp;
+                }
+
     	echo json_encode($res);
     }else{
 //        header(http_response_code(401));
